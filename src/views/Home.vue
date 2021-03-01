@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <span class = "icon-bookmark"></span>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  export default {
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
   }
-}
 </script>
+
+<style scoped>
+  .icon-bookmark{
+    font-size: 30px;
+    color: #ff0000;
+  }
+</style>
