@@ -18,5 +18,14 @@ export default new Router({
           component: () => import('./components/ebook/EbookReader.vue')
         }
       ]
-    }]
+    },
+    {
+      path: '/detail',
+      component: () => import('./views/store/StoreDetail.vue')
+    },
+    {
+      path: '/speaking',
+      component: () => import('./views/store/StoreSpeaking.vue')
+    }
+  ]
 })

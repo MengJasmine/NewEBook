@@ -1,4 +1,6 @@
+import { getReadTime } from './localStorage'
 import { realPx } from './utils'
+
 export const FONT_SIZE_LIST = [
   { fontSize: 12 },
   { fontSize: 14 },
@@ -16,6 +18,7 @@ export const FONT_FAMILY = [
   { font: 'Montserrat' },
   { font: 'Tangerine' }
 ]
+
 export function themeList(vue) {
   return [
     {
@@ -68,6 +71,7 @@ export function themeList(vue) {
     }
   ]
 }
+
 export function addCss(href) {
   const link = document.createElement('link')
   link.setAttribute('rel', 'stylesheet')
@@ -91,4 +95,17 @@ export function removeAllCss() {
   removeCss(`${process.env.VUE_APP_RES_URL}/theme/theme_eye.css`)
   removeCss(`${process.env.VUE_APP_RES_URL}/theme/theme_gold.css`)
   removeCss(`${process.env.VUE_APP_RES_URL}/theme/theme_night.css`)
+}
+
+export function getReadTimeByMinute(fileName) {
+  const readTime = getReadTime(fileName)
+  if (!readTime) {
+    return 0
+  } else {
+    return Math.ceil(readTime / 60)
+  }
+}
+
+export function flatten(array) {
+  return [].concat(...array.map(item => [].concat(item, ...flatten(item.subitems))))
 }

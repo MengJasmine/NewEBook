@@ -1,18 +1,12 @@
 <template>
   <transition name="slide-down">
-    <div class="title-wrapper" v-show="menuVisible" >
+    <div class="title-wrapper" v-show="menuVisible">
       <div class="left">
         <span class="icon-back" @click="back"></span>
       </div>
       <div class="right">
         <div class="icon-wrapper">
-          <span class="icon-shelf"></span>
-        </div>
-        <div class="icon-wrapper">
-          <span class="icon-cart"></span>
-        </div>
-        <div class="icon-wrapper">
-          <span class="icon-more"></span>
+          <span class="icon-headphone" @click="listen"></span>
         </div>
       </div>
     </div>
@@ -20,13 +14,28 @@
 </template>
 
 <script>
-import { ebookMixin } from '@/utils/mixin'
+import { ebookMixin } from '../../utils/mixin'
 
 export default {
   mixins: [ebookMixin],
   methods: {
+    listen() {
+      this.$router.push({
+        path: '/speaking',
+        query: {
+          fileName: this.fileName
+        }
+      })
+    },
     back() {
-      this.$router.go(-1)
+      console.log(this)
+      console.log(this.fileName.split('/')[1])
+      this.$router.push({
+        path: '/detail',
+        query: {
+          filename: this.fileName.split('/')[1]
+        }
+      })
     }
   }
 }

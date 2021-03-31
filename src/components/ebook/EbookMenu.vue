@@ -19,58 +19,62 @@
     <ebook-setting-font></ebook-setting-font>
     <ebook-setting-font-popup></ebook-setting-font-popup>
     <ebook-setting-theme></ebook-setting-theme>
-    <ebook-setting-progress></ebook-setting-progress>
+    <ebook-setting-progess></ebook-setting-progess>
+    <ebook-slide></ebook-slide>
   </div>
 </template>
 
 <script>
-import EbookSettingFont from './EbookSettingFont'
-import EbookSettingFontPopup from './EbookSettingFontPopup'
-import EbookSettingTheme from './EbookSettingTheme'
-import { ebookMixin } from '../../utils/mixin'
-import EbookSettingProgress from '@/components/ebook/EbookSettingProgress'
+  import EbookSettingFont from './EbookSettingFont'
+  import EbookSettingFontPopup from './EbookSettingFontPopup'
+  import EbookSettingTheme from './EbookSettingTheme'
+  import EbookSettingProgess from './EbookSettingProgress'
+  import EbookSlide from './EbookSlide'
+  import { ebookMixin } from '../../utils/mixin'
 
-export default {
-  mixins: [ebookMixin],
-  components: {
-    EbookSettingFont,
-    EbookSettingFontPopup,
-    EbookSettingTheme,
-    EbookSettingProgress
-  },
-  methods: {
-    showSetting(key) {
-      this.setSettingVisible(key)
+  export default {
+    mixins: [ebookMixin],
+    components: {
+      EbookSettingFont,
+      EbookSettingFontPopup,
+      EbookSettingTheme,
+      EbookSettingProgess,
+      EbookSlide
+    },
+    methods: {
+      showSetting(key) {
+        this.setSettingVisible(key)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-@import "../../assets/styles/global";
-.menu-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 200;
-  display: flex;
-  width: 100%;
-  height: px2rem(48);
-  background: #ffffff;
-  box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, .15);
-  font-size: px2rem(20);
-  &.hide-box-shadow {
-    box-shadow: none;
-  }
-  .icon-wrapper {
-    flex: 1;
-    @include center;
-    .icon-progress {
-      font-size: px2rem(24);
+  @import "../../assets/styles/global";
+
+  .menu-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    display: flex;
+    width: 100%;
+    height: px2rem(48);
+    background: white;
+    box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, .15);
+    font-size: px2rem(20);
+    &.hide-box-shadow {
+      box-shadow: none;
     }
-    .icon-bright {
-      font-size: px2rem(22);
+    .icon-wrapper {
+      flex: 1;
+      @include center;
+      .icon-progress {
+        font-size: px2rem(24);
+      }
+      .icon-bright {
+        font-size: px2rem(22);
+      }
     }
   }
-}
 </style>
