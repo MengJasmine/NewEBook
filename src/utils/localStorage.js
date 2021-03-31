@@ -10,22 +10,6 @@ export function getLocalStorage(key) {
   return localStorage.get(key)
 }
 
-export function removeLocalStorage(key) {
-  return localStorage.delete(key)
-}
-
-export function clearLocalStorage() {
-  return localStorage.clear()
-}
-
-export function saveBookShelf(shelf) {
-  return setLocalStorage('shelf', shelf)
-}
-
-export function getBookShelf() {
-  return getLocalStorage('shelf')
-}
-
 export function setBookObject(fileName, key, value) {
   let book = getLocalStorage(`${fileName}-info`)
   if (!book) {
@@ -64,48 +48,12 @@ export function getBookmark(fileName) {
   return getBookObject(fileName, 'bookmark')
 }
 
-export function saveBookmark(fileName, bookmark) {
-  setBookObject(fileName, 'bookmark', bookmark)
-}
-
 export function getReadTime(fileName) {
   return getBookObject(fileName, 'time')
 }
 
 export function saveReadTime(fileName, theme) {
   setBookObject(fileName, 'time', theme)
-}
-
-export function getProgress(fileName) {
-  return getBookObject(fileName, 'progress')
-}
-
-export function saveProgress(fileName, progress) {
-  setBookObject(fileName, 'progress', progress)
-}
-
-export function getNavigation(fileName) {
-  return getBookObject(fileName, 'navigation')
-}
-
-export function saveNavigation(fileName, navigation) {
-  setBookObject(fileName, 'navigation', navigation)
-}
-
-export function getMetadata(fileName) {
-  return getBookObject(fileName, 'metadata')
-}
-
-export function saveMetadata(fileName, metadata) {
-  setBookObject(fileName, 'metadata', metadata)
-}
-
-export function getCover(fileName) {
-  return getBookObject(fileName, 'cover')
-}
-
-export function saveCover(fileName, cover) {
-  setBookObject(fileName, 'cover', cover)
 }
 
 export function getFontFamily(fileName) {
